@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../common/P.dart';
+
 /// @Author : Alex Hu
 /// @Contact: hucaihua.lzu@gmail.com
 /// @Comment: HomePage
@@ -8,9 +10,9 @@ import 'package:flutter/material.dart';
 class ScrollStateInheritWidget extends InheritedWidget {
   static const String sName = "ScrollStateInheritWidget";
 
-  bool showToTopButton = false;
+  bool showPercentButton = false;
 
-  ScrollStateInheritWidget({super.key , required this.showToTopButton, required super.child});
+  ScrollStateInheritWidget({super.key , required this.showPercentButton, required super.child});
 
   static ScrollStateInheritWidget? of(BuildContext context){
     return context.dependOnInheritedWidgetOfExactType<ScrollStateInheritWidget>();
@@ -18,6 +20,7 @@ class ScrollStateInheritWidget extends InheritedWidget {
 
   @override
   bool updateShouldNotify(covariant ScrollStateInheritWidget oldWidget) {
-    return oldWidget.showToTopButton != showToTopButton;
+    P.d("updateShouldNotify");
+    return oldWidget.showPercentButton != showPercentButton;
   }
 }

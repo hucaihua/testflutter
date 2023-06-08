@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:testflutter/page/home_page.dart';
+import 'package:testflutter/page/home_inherit_page.dart';
 import 'package:testflutter/widget/ScrollStateInheritWidget.dart';
 
 import '../common/P.dart';
@@ -35,12 +35,11 @@ class HomeListState extends State<HomeList> {
       if(_controller.offset > 1000 && !showTopButton) {
         P.d("show button to top");
         showTopButton = true;
-        // ScrollStateInheritWidget.of(context)?.showToTopButton = showTopButton;
-        context.findAncestorStateOfType<HomePageState>()?.showUpButton(true);
+        context.findAncestorStateOfType<HomeInheritState>()?.show(showTopButton);
       }else if(showTopButton && _controller.offset <= 1000){
+        P.d("hide button to top");
         showTopButton = false;
-        // ScrollStateInheritWidget.of(context)?.showToTopButton = showTopButton;
-        context.findAncestorStateOfType<HomePageState>()?.showUpButton(false);
+        context.findAncestorStateOfType<HomeInheritState>()?.show(showTopButton);
       }
     });
   }
@@ -76,6 +75,12 @@ class HomeListState extends State<HomeList> {
         controller: _controller,
       ),
     ),
+        CircleAvatar(
+          //显示进度百分比
+          radius: 30.0,
+          backgroundColor: Colors.black54,
+          child: Text(ScrollStateInheritWidget.of(context)?.showPercentButton ?? false ? "展示" : "隐藏"),
+        )
       ],
     );
   }
@@ -106,5 +111,12 @@ class HomeListState extends State<HomeList> {
 
   void toTop() {
     _controller.animateTo(0, duration: Duration(seconds: 1), curve: Curves.easeIn);
+  }
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    P.d("didChangeDependencies in home_list ${ScrollStateInheritWidget.of(context)?.showPercentButton}");
   }
 }

@@ -4,6 +4,7 @@ import 'package:testflutter/page/home_list.dart';
 import 'package:testflutter/page/home_setting.dart';
 import 'package:testflutter/widget/ScrollStateInheritWidget.dart';
 
+import '../common/P.dart';
 import '../widget/KeepAliveWidget.dart';
 
 /// @Author : Alex Hu
@@ -24,7 +25,6 @@ class HomePageState extends State<HomePage> {
   final GlobalKey<HomeListState> homeListKey = GlobalKey();
   final GlobalKey<HomeChartState> homeChartKey = GlobalKey();
   final GlobalKey<HomeSettingState> homeSettingKey = GlobalKey();
-  bool _showButton = false;
   PageController pageController = PageController(
     initialPage: 0,
     keepPage: true,
@@ -52,11 +52,8 @@ class HomePageState extends State<HomePage> {
         onTap: _onTap,
         currentIndex: _selectedIndex,
       ),
-      body: ScrollStateInheritWidget(
-        showToTopButton: _showButton,
-        child: buildPageView(),
-      ),
-      floatingActionButton: _showButton
+      body: buildPageView(),
+      floatingActionButton: ScrollStateInheritWidget.of(context)?.showPercentButton ?? false
           ? IconButton(icon: const Icon(Icons.arrow_upward), onPressed: () {
         homeListKey.currentState?.toTop();
       })
@@ -64,17 +61,18 @@ class HomePageState extends State<HomePage> {
     );
   }
 
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    P.d("didChangeDependencies in home_page ${ScrollStateInheritWidget.of(context)?.showPercentButton}");
+  }
+
   void _onTap(int value) {
     setState(() {
       _selectedIndex = value;
       pageController.animateToPage(value,
           duration: Duration(milliseconds: 500), curve: Curves.linear);
-    });
-  }
-
-  void showUpButton(bool show) {
-    setState(() {
-      _showButton = show;
     });
   }
 

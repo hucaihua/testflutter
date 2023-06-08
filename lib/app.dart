@@ -1,10 +1,12 @@
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:testflutter/common/UIUtil.dart';
+import 'package:testflutter/page/home_inherit_page.dart';
 import 'package:testflutter/page/home_page.dart';
 import 'package:testflutter/page/layout_page.dart';
 import 'package:testflutter/page/login_page.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:testflutter/widget/ScrollStateInheritWidget.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
         "/"           :(context) => const MyHomePage(title: "HelloFlutter"),
         LoginPage.sName : (context) => const LoginPage(),
         LayoutPage.sName : (context) => const LayoutPage(),
-        HomePage.sName : (context) => const HomePage(),
+        HomeInheritPage.sName : (context) => const HomeInheritPage(),
       },
       initialRoute: "/",
     );
@@ -86,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),),
               ElevatedButton(
                 onPressed: (){
-                  Navigator.pushNamed(context, HomePage.sName);
+                  Navigator.pushNamed(context, HomeInheritPage.sName);
                 },
                 child: Text("testHome") , style: ButtonStyle(
                   foregroundColor: UIUtil.buttonStyle()
