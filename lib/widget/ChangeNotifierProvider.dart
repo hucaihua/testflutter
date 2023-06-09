@@ -13,9 +13,11 @@ class ChangeNotifierProvider<T extends ChangeNotifier> extends StatefulWidget {
   final Widget child;
   static const String sName = "ChangeNotifierProvider";
 
-  //定义一个便捷方法，方便子树中的widget获取共享数据
-  static T? of<T>(BuildContext context) {
-    final provider =  context.dependOnInheritedWidgetOfExactType<InheritProvider<T>>();
+  //防止仅需要使用的地方发生刷新。
+  static T? of<T>(BuildContext context, {bool listen = true}) {
+    final provider = listen
+        ? context.dependOnInheritedWidgetOfExactType<InheritProvider<T>>()
+        : context.getElementForInheritedWidgetOfExactType<InheritProvider<T>>()?.widget as InheritProvider<T>;
     return provider?.data;
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testflutter/widget/Consumer.dart';
 
 import '../common/P.dart';
 import '../model/CarModel.dart';
@@ -27,17 +28,16 @@ class HomeChartProviderState extends State<HomeChartProvider> {
         child: Builder(builder: (context) {
           return Column(
             children: <Widget>[
-              Builder(builder: (context) {
-                var cart = ChangeNotifierProvider.of<CarModel>(context);
-                return Text("总价: ${cart?.totalPrice}");
+              Consumer<CarModel>(builder: (context , data){
+                return Text("总价:${data?.totalPrice}");
               }),
               Builder(builder: (context) {
-                P.d("ElevatedButton build"); //在后面优化部分会用到
+                 //在后面优化部分会用到
                 return ElevatedButton(
                   child: const Text("添加商品"),
                   onPressed: () {
                     //给购物车中添加商品，添加后总价会更新
-                    ChangeNotifierProvider.of<CarModel>(context)
+                    ChangeNotifierProvider.of<CarModel>(context , listen: false)
                         ?.add(Item(20.0, 1));
                   },
                 );
