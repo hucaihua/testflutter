@@ -20,7 +20,6 @@ class ScrollStateInheritWidget extends InheritedWidget {
 
   @override
   bool updateShouldNotify(covariant ScrollStateInheritWidget oldWidget) {
-    P.d("updateShouldNotify");
     return oldWidget.showPercentButton != showPercentButton;
   }
 }

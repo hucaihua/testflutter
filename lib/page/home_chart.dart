@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/page/home_chart_custom_scroll_view.dart';
 import 'package:testflutter/page/home_chart_nested_scroll_view.dart';
+import 'package:testflutter/page/home_chart_provider.dart';
 
 import '../widget/KeepAliveWidget.dart';
 
@@ -19,7 +20,7 @@ class HomeChart extends StatefulWidget {
 
 class HomeChartState extends State<HomeChart>
     with SingleTickerProviderStateMixin {
-  List<String> tabs = ["news", "history", "images"];
+  List<String> tabs = ["news", "history", "provider"];
   List<Icon> tabsIcons = [
     Icon(Icons.add),
     Icon(Icons.access_alarm),
@@ -55,7 +56,7 @@ class HomeChartState extends State<HomeChart>
               children: [
                 KeepAliveWidget(child: HomeChartCustomScrollView()),
                 KeepAliveWidget(child: HomeChartNestedScrollView()),
-                KeepAliveWidget(child: Text("aaaaa")),
+                KeepAliveWidget(child: HomeChartProvider()),
               ]
             ),
           ),
