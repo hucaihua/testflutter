@@ -33,11 +33,11 @@ class HomeListState extends State<HomeList> {
     super.initState();
     _controller.addListener(() {
       if(_controller.offset > 1000 && !showTopButton) {
-        P.d("show button to top");
+        Log.d("show button to top");
         showTopButton = true;
         context.findAncestorStateOfType<HomeInheritState>()?.show(showTopButton);
       }else if(showTopButton && _controller.offset <= 1000){
-        P.d("hide button to top");
+        Log.d("hide button to top");
         showTopButton = false;
         context.findAncestorStateOfType<HomeInheritState>()?.show(showTopButton);
       }
@@ -117,6 +117,6 @@ class HomeListState extends State<HomeList> {
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
-    P.d("didChangeDependencies in home_list ${ScrollStateInheritWidget.of(context)?.showPercentButton}");
+    Log.d("didChangeDependencies in home_list ${ScrollStateInheritWidget.of(context)?.showPercentButton}");
   }
 }

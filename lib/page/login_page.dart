@@ -65,7 +65,7 @@ class LoginState extends State<LoginPage> {
                     onPressed: () {
                       FormState formState = _globalKey.currentState as FormState;
                       if (formState.validate()) {
-                        P.d("user: ${userNameController.text} , pass:${passwordController.text}");
+                        Log.d("user: ${userNameController.text} , pass:${passwordController.text}");
                       }
                     },
                     child: Text("login"),

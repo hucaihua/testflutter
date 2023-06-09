@@ -8,8 +8,8 @@ import 'common/P.dart';
 
 void reportErrorAndLog(Object exception, [StackTrace? stack]) {
   if (kDebugMode) {
-    P.e(exception);
-    P.e(stack);
+    Log.e(exception);
+    Log.e(stack);
   }
 }
 

@@ -63,7 +63,7 @@ class HomeChartNestedScrollViewState extends State<HomeChartNestedScrollView> {
   SliverFixedExtentList buildSliverList(int count) {
     return SliverFixedExtentList(
       delegate: SliverChildBuilderDelegate((context, index) {
-        P.d("build sliver");
+        Log.d("build sliver");
         return Text("__ $index");
       }, childCount: count),
       itemExtent: 50,

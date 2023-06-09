@@ -65,7 +65,7 @@ class HomePageState extends State<HomePage> {
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
-    P.d("didChangeDependencies in home_page ${ScrollStateInheritWidget.of(context)?.showPercentButton}");
+    Log.d("didChangeDependencies in home_page ${ScrollStateInheritWidget.of(context)?.showPercentButton}");
   }
 
   void _onTap(int value) {
