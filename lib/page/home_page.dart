@@ -42,6 +42,7 @@ class HomePageState extends State<HomePage> {
           ? null
           : AppBar(
               title: const Text("HomePage"),
+        // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
             ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
