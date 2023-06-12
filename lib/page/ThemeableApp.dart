@@ -3,6 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:testflutter/page/home_inherit_page.dart';
 import 'package:testflutter/page/layout_page.dart';
 import 'package:testflutter/page/login_page.dart';
+import 'package:testflutter/page/test_animation_page.dart';
 import 'package:testflutter/page/test_touch_page.dart';
 
 import 'future_page.dart';
@@ -39,6 +40,7 @@ class ThemeableAppState extends State<ThemeableApp> {
         HomeInheritPage.sName: (context) => const HomeInheritPage(),
         FuturePage.sName: (context) => const FuturePage(),
         TestTouchPage.sName: (context) => const TestTouchPage(),
+        TestAnimationPage.sName: (context) => const TestAnimationPage(),
       },
       initialRoute: "/",
     );
@@ -114,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.pushNamed(context, HomeInheritPage.sName);
                 },
-                child: const Text("testHome"),
+                child: const Text("testHomeInheritPage"),
                 style: const ButtonStyle(
                     // foregroundColor: UIUtil.buttonStyle()
                     ),
@@ -134,8 +136,31 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: const Text("testTouch"),
                 style: const ButtonStyle(
-                  // foregroundColor: UIUtil.buttonStyle()
-                ),
+                    // foregroundColor: UIUtil.buttonStyle()
+                    ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      transitionDuration: Duration(milliseconds: 500),
+                      //动画时间为500毫秒
+                      pageBuilder: (BuildContext context, Animation<double> animation, Animation secondaryAnimation) {
+                        return FadeTransition(
+                          //使用渐隐渐入过渡,
+                          opacity: animation,
+                          child: TestAnimationPage(), //路由B
+                        );
+                      },
+                    ),
+                  );
+                  // Navigator.pushNamed(context, TestAnimationPage.sName);
+                },
+                child: const Text("testAnimation"),
+                style: const ButtonStyle(
+                    // foregroundColor: UIUtil.buttonStyle()
+                    ),
               ),
             ],
           ),
