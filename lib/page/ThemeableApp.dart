@@ -3,6 +3,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:testflutter/page/home_inherit_page.dart';
 import 'package:testflutter/page/layout_page.dart';
 import 'package:testflutter/page/login_page.dart';
+import 'package:testflutter/page/test_touch_page.dart';
+
+import 'future_page.dart';
 
 /// @Author : Alex Hu
 /// @Contact: hucaihua.lzu@gmail.com
@@ -18,7 +21,7 @@ class ThemeableApp extends StatefulWidget {
 }
 
 class ThemeableAppState extends State<ThemeableApp> {
-  var _themeColor = Colors.white;
+  var _themeColor = Colors.red;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +37,8 @@ class ThemeableAppState extends State<ThemeableApp> {
         LoginPage.sName: (context) => const LoginPage(),
         LayoutPage.sName: (context) => const LayoutPage(),
         HomeInheritPage.sName: (context) => const HomeInheritPage(),
+        FuturePage.sName: (context) => const FuturePage(),
+        TestTouchPage.sName: (context) => const TestTouchPage(),
       },
       initialRoute: "/",
     );
@@ -113,6 +118,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: const ButtonStyle(
                     // foregroundColor: UIUtil.buttonStyle()
                     ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, FuturePage.sName);
+                },
+                child: const Text("testFuture"),
+                style: const ButtonStyle(
+                  // foregroundColor: UIUtil.buttonStyle()
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, TestTouchPage.sName);
+                },
+                child: const Text("testTouch"),
+                style: const ButtonStyle(
+                  // foregroundColor: UIUtil.buttonStyle()
+                ),
               ),
             ],
           ),
