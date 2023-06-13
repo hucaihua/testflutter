@@ -22,7 +22,7 @@ class TestAnimationPage2 extends StatelessWidget {
       ),
       // body: CustomHeroAnimation(),
       // body: TestStaggerWidget(),
-      body: AnimatedSwitcherCounterRoute(),
+      body: const AnimatedSwitcherCounterRoute(),
     );
   }
 }
