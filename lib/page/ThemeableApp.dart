@@ -3,7 +3,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:testflutter/page/home_inherit_page.dart';
 import 'package:testflutter/page/layout_page.dart';
 import 'package:testflutter/page/login_page.dart';
+import 'package:testflutter/page/test_animation_hero.dart';
 import 'package:testflutter/page/test_animation_page.dart';
+import 'package:testflutter/page/test_animation_page_2.dart';
 import 'package:testflutter/page/test_touch_page.dart';
 
 import 'future_page.dart';
@@ -41,6 +43,8 @@ class ThemeableAppState extends State<ThemeableApp> {
         FuturePage.sName: (context) => const FuturePage(),
         TestTouchPage.sName: (context) => const TestTouchPage(),
         TestAnimationPage.sName: (context) => const TestAnimationPage(),
+        TestAnimationPage2.sName: (context) => const TestAnimationPage2(),
+        TestAnimationHero.sName: (context) => const TestAnimationHero(),
       },
       initialRoute: "/",
     );
@@ -161,6 +165,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: const ButtonStyle(
                     // foregroundColor: UIUtil.buttonStyle()
                     ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, TestAnimationPage2.sName);
+                },
+                child: const Text("testAnimation2"),
+                style: const ButtonStyle(
+                  // foregroundColor: UIUtil.buttonStyle()
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, TestAnimationHero.sName);
+                },
+                child: const Text("testHero"),
+                style: const ButtonStyle(
+                  // foregroundColor: UIUtil.buttonStyle()
+                ),
               ),
             ],
           ),
