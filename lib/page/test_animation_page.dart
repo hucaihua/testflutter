@@ -52,7 +52,7 @@ class TestAnimationPageState extends State<TestAnimationPage>
     // );
 
     return ScaleTransition(
-      scale: animation,
+      scale: controller,
       child: Image.asset(Assets.imagesBanner),
     );
   }
