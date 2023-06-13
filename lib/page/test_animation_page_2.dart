@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testflutter/widget/AnimatedSwitcherCounterRoute.dart';
 import 'package:testflutter/widget/custoom_hero_widget.dart';
 
 import '../widget/Stagger_animation.dart';
@@ -20,7 +21,8 @@ class TestAnimationPage2 extends StatelessWidget {
         title: Text("TestAnimationPage2"),
       ),
       // body: CustomHeroAnimation(),
-      body: TestStaggerWidget(),
+      // body: TestStaggerWidget(),
+      body: AnimatedSwitcherCounterRoute(),
     );
   }
 }
