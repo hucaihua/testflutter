@@ -7,6 +7,7 @@ import 'package:testflutter/page/test_animation_hero.dart';
 import 'package:testflutter/page/test_animation_page.dart';
 import 'package:testflutter/page/test_animation_page_2.dart';
 import 'package:testflutter/page/test_io_page.dart';
+import 'package:testflutter/page/test_json.dart';
 import 'package:testflutter/page/test_touch_page.dart';
 
 import 'future_page.dart';
@@ -47,6 +48,7 @@ class ThemeableAppState extends State<ThemeableApp> {
         TestAnimationPage2.sName: (context) => const TestAnimationPage2(),
         TestAnimationHero.sName: (context) => const TestAnimationHero(),
         WebSocketRoute.sName: (context) => WebSocketRoute(),
+        TestJson.sName: (context) => TestJson(),
       },
       initialRoute: "/",
     );
@@ -97,95 +99,101 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, LoginPage.sName);
-                },
-                child: Text("testLogin"),
-                style: ButtonStyle(
-                    // foregroundColor: UIUtil.buttonStyle()
-                    ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, LayoutPage.sName);
-                },
-                child: const Text("testLayout"),
-                style: const ButtonStyle(
-                    // foregroundColor: UIUtil.buttonStyle()
-                    ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, HomeInheritPage.sName);
-                },
-                child: const Text("testHomeInheritPage"),
-                style: const ButtonStyle(
-                    // foregroundColor: UIUtil.buttonStyle()
-                    ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, FuturePage.sName);
-                },
-                child: const Text("testFuture"),
-                style: const ButtonStyle(
-                  // foregroundColor: UIUtil.buttonStyle()
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, LoginPage.sName);
+                  },
+                  child: Text("testLogin"),
+                  style: ButtonStyle(
+                      // foregroundColor: UIUtil.buttonStyle()
+                      ),
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, TestTouchPage.sName);
-                },
-                child: const Text("testTouch"),
-                style: const ButtonStyle(
-                    // foregroundColor: UIUtil.buttonStyle()
-                    ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    PageRouteBuilder(
-                      transitionDuration: Duration(milliseconds: 500),
-                      //动画时间为500毫秒
-                      pageBuilder: (BuildContext context, Animation<double> animation, Animation secondaryAnimation) {
-                        return FadeTransition(
-                          //使用渐隐渐入过渡,
-                          opacity: animation,
-                          child: TestAnimationPage(), //路由B
-                        );
-                      },
-                    ),
-                  );
-                  // Navigator.pushNamed(context, TestAnimationPage.sName);
-                },
-                child: const Text("testAnimation"),
-                style: const ButtonStyle(
-                    // foregroundColor: UIUtil.buttonStyle()
-                    ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, TestAnimationPage2.sName);
-                },
-                child: const Text("testAnimation2"),
-                style: const ButtonStyle(
-                  // foregroundColor: UIUtil.buttonStyle()
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, LayoutPage.sName);
+                  },
+                  child: const Text("testLayout"),
+                  style: const ButtonStyle(
+                      // foregroundColor: UIUtil.buttonStyle()
+                      ),
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () { Navigator.pushNamed(context, TestAnimationHero.sName); },
-                child: const Text("testHero"),
-              ),
-              ElevatedButton(
-                onPressed: () { Navigator.pushNamed(context, WebSocketRoute.sName); },
-                child: const Text("testio"),
-              ),
-            ],
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, HomeInheritPage.sName);
+                  },
+                  child: const Text("testHomeInheritPage"),
+                  style: const ButtonStyle(
+                      // foregroundColor: UIUtil.buttonStyle()
+                      ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, FuturePage.sName);
+                  },
+                  child: const Text("testFuture"),
+                  style: const ButtonStyle(
+                    // foregroundColor: UIUtil.buttonStyle()
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, TestTouchPage.sName);
+                  },
+                  child: const Text("testTouch"),
+                  style: const ButtonStyle(
+                      // foregroundColor: UIUtil.buttonStyle()
+                      ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        transitionDuration: Duration(milliseconds: 500),
+                        //动画时间为500毫秒
+                        pageBuilder: (BuildContext context, Animation<double> animation, Animation secondaryAnimation) {
+                          return FadeTransition(
+                            //使用渐隐渐入过渡,
+                            opacity: animation,
+                            child: TestAnimationPage(), //路由B
+                          );
+                        },
+                      ),
+                    );
+                    // Navigator.pushNamed(context, TestAnimationPage.sName);
+                  },
+                  child: const Text("testAnimation"),
+                  style: const ButtonStyle(
+                      // foregroundColor: UIUtil.buttonStyle()
+                      ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, TestAnimationPage2.sName);
+                  },
+                  child: const Text("testAnimation2"),
+                  style: const ButtonStyle(
+                    // foregroundColor: UIUtil.buttonStyle()
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () { Navigator.pushNamed(context, TestAnimationHero.sName); },
+                  child: const Text("testHero"),
+                ),
+                ElevatedButton(
+                  onPressed: () { Navigator.pushNamed(context, WebSocketRoute.sName); },
+                  child: const Text("testio"),
+                ),
+                ElevatedButton(
+                  onPressed: () { Navigator.pushNamed(context, TestJson.sName); },
+                  child: const Text("testjson"),
+                ),
+              ],
+            ),
           ),
         ),
         floatingActionButton: FloatingActionButton(
