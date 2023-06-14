@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'app.dart';
-import 'common/P.dart';
+import 'common/log.dart';
 
 void reportErrorAndLog(Object exception, [StackTrace? stack]) {
   if (kDebugMode) {

@@ -3,7 +3,7 @@
 /// @Comment: TestAnimatedWidget
 /// @Date: on 2023-06-05 10:53
 import 'package:flutter/material.dart';
-import 'package:testflutter/common/P.dart';
+import 'package:testflutter/common/log.dart';
 
 class AnimatedWidgetsTest extends StatefulWidget {
   const AnimatedWidgetsTest({Key? key}) : super(key: key);

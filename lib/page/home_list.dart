@@ -5,7 +5,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:testflutter/page/home_inherit_page.dart';
 import 'package:testflutter/widget/ScrollStateInheritWidget.dart';
 
-import '../common/P.dart';
+import '../common/log.dart';
 
 /// @Author : Alex Hu
 /// @Contact: hucaihua.lzu@gmail.com

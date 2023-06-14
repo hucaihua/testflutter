@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../common/P.dart';
+import '../common/log.dart';
 import '../generated/assets.dart';
 
 /// @Author : Alex Hu

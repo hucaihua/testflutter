@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../common/P.dart';
+import '../common/log.dart';
 import 'InheritProvider.dart';
 
 /// @Author : Alex Hu

@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:testflutter/common/P.dart';
+import 'package:testflutter/common/log.dart';
 
 /// 注意CustomPaint 使用的canvas 与其他widget使用的是同一个，外部的刷新，也会导致
 /// 棋盘的重绘
