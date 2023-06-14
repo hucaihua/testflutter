@@ -8,6 +8,7 @@
 /// key: ValueKey<int>(_count),
 /// begin: Offset(1, 0) ， 这个1代表的是1个子widget的宽度
 import 'package:flutter/material.dart';
+import 'package:testflutter/widget/SlideTransitionX.dart';
 
 class AnimatedSwitcherCounterRoute extends StatefulWidget {
   const AnimatedSwitcherCounterRoute({super.key});
@@ -60,10 +61,14 @@ class _AnimatedSwitcherCounterRouteState extends State<AnimatedSwitcherCounterRo
       duration: const Duration(milliseconds: 1000),
       transitionBuilder: (Widget child, Animation<double> animation) {
         var tween = Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0));
-        return MySlideTransition(
-          child: child,
-          position: tween.animate(animation),
-        );
+        // return MySlideTransition(
+        //   child: child,
+        //   position: tween.animate(animation),
+        // );
+        return SlideTransitionX(
+            child: child,
+            direction: AxisDirection.left, //上入下出
+            position: animation);
       },
       child: Container(
         key: ValueKey<int>(_count),

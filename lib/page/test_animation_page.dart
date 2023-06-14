@@ -46,15 +46,15 @@ class TestAnimationPageState extends State<TestAnimationPage>
 
   @override
   Widget build(BuildContext context) {
-    // return GrowTransition(
-    //   animation: animation,
-    //   child: Image.asset(Assets.imagesBanner),
-    // );
-
-    return ScaleTransition(
-      scale: controller,
+    return GrowTransition(
+      animation: animation,
       child: Image.asset(Assets.imagesBanner),
     );
+
+    // return ScaleTransition(
+    //   scale: controller,
+    //   child: Image.asset(Assets.imagesBanner),
+    // );
   }
 
   @override
