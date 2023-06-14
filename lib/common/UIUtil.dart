@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/// @Author : Alex Hu
+/// @Contact: hucaihua.lzu@gmail.com
+/// @Date: on 2023-06-05 15:02
+
 extension String2Color on String {
   Color toColor() {
     final buffer = StringBuffer();

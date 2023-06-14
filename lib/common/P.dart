@@ -1,5 +1,9 @@
 import 'package:logger/logger.dart';
 
+/// @Author : Alex Hu
+/// @Contact: hucaihua.lzu@gmail.com
+/// @Date: on 2023-06-05 15:02
+
 class Log {
   static final Logger _logger = Logger(
     printer: PrefixPrinter(PrettyPrinter(methodCount: 2 , stackTraceBeginIndex: 0)),

@@ -16,7 +16,7 @@ class CustomPaintRoute extends StatelessWidget {
         child: CustomPaint(
           size: Size(300, 300), //指定画布大小
           painter: MyPainter(),
-          child: Text("1234"),
+          // child: Container(width:300 , height:300 ,child: Text("1345"),alignment: Alignment.center,),
         ),
       ),
     );

@@ -6,6 +6,7 @@ import 'package:testflutter/page/login_page.dart';
 import 'package:testflutter/page/test_animation_hero.dart';
 import 'package:testflutter/page/test_animation_page.dart';
 import 'package:testflutter/page/test_animation_page_2.dart';
+import 'package:testflutter/page/test_io_page.dart';
 import 'package:testflutter/page/test_touch_page.dart';
 
 import 'future_page.dart';
@@ -45,6 +46,7 @@ class ThemeableAppState extends State<ThemeableApp> {
         TestAnimationPage.sName: (context) => const TestAnimationPage(),
         TestAnimationPage2.sName: (context) => const TestAnimationPage2(),
         TestAnimationHero.sName: (context) => const TestAnimationHero(),
+        WebSocketRoute.sName: (context) => WebSocketRoute(),
       },
       initialRoute: "/",
     );
@@ -176,13 +178,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, TestAnimationHero.sName);
-                },
+                onPressed: () { Navigator.pushNamed(context, TestAnimationHero.sName); },
                 child: const Text("testHero"),
-                style: const ButtonStyle(
-                  // foregroundColor: UIUtil.buttonStyle()
-                ),
+              ),
+              ElevatedButton(
+                onPressed: () { Navigator.pushNamed(context, WebSocketRoute.sName); },
+                child: const Text("testio"),
               ),
             ],
           ),
