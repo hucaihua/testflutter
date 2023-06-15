@@ -36,6 +36,7 @@ dependencies:
   decimal: ^2.3.2
   crypto: ^3.0.3
   convert: ^3.1.1
+  intl_generator: ^0.4.1
 
 dev_dependencies:
   flutter_test:
@@ -53,4 +54,5 @@ flutter:
   assets:
     - assets/
     - assets/images/
-
+flutter_intl:
+  enabled: true

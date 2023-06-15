@@ -11,6 +11,7 @@ import 'package:testflutter/page/test_io_page.dart';
 import 'package:testflutter/page/test_json.dart';
 import 'package:testflutter/page/test_touch_page.dart';
 
+import '../generated/l10n.dart';
 import 'future_page.dart';
 
 /// @Author : Alex Hu
@@ -32,17 +33,15 @@ class ThemeableAppState extends State<ThemeableApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      localizationsDelegates: [
-        // 本地化的代理类
+      onGenerateTitle: (context) => S.of(context).appName,
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalCupertinoLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      supportedLocales: [
-        const Locale('en', 'US'), // 美国英语
-        const Locale('zh', 'CN'), // 中文简体
-        //其他Locales
-      ],
+      supportedLocales: S.delegate.supportedLocales,
+      locale: const Locale.fromSubtags(languageCode: 'en'),
       theme: ThemeData(
         iconTheme: IconThemeData(color: _themeColor),
         appBarTheme: AppBarTheme(backgroundColor: _themeColor),
