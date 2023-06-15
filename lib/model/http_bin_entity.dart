@@ -1,6 +1,7 @@
+import 'dart:convert';
+
 import 'package:testflutter/generated/json/base/json_field.dart';
 import 'package:testflutter/generated/json/http_bin_entity.g.dart';
-import 'dart:convert';
 
 /// 注意转义符解析会报错 .需要提前将json中的\替换为\\
 /// """
@@ -30,29 +31,22 @@ import 'dart:convert';
 //     """
 @JsonSerializable()
 class HttpBinEntity {
-	Map<String,dynamic>? args;
-	HttpBinHeaders? headers;
-	String? origin = '';
-	String? url = '';
+  String? args;
+  HttpBinHeaders? headers;
+  String? origin = '';
+  String? url = '';
+  String? data;
 
-	HttpBinEntity();
+  HttpBinEntity();
 
-	factory HttpBinEntity.fromJson(Map<String, dynamic> json) => $HttpBinEntityFromJson(json);
+  factory HttpBinEntity.fromJson(Map<String, dynamic> json) => $HttpBinEntityFromJson(json);
 
-	Map<String, dynamic> toJson() => $HttpBinEntityToJson(this);
+  Map<String, dynamic> toJson() => $HttpBinEntityToJson(this);
 
-	HttpBinEntity copyWith({Map<String,dynamic>? args, HttpBinHeaders? headers, String? origin, String? url}) {
-		return HttpBinEntity()
-			..args= args ?? this.args
-			..headers= headers ?? this.headers
-			..origin= origin ?? this.origin
-			..url= url ?? this.url;
-	}
-
-	@override
-	String toString() {
-		return jsonEncode(this);
-	}
+  @override
+  String toString() {
+    return jsonEncode(this);
+  }
 }
 
 @JsonSerializable()
@@ -91,24 +85,6 @@ class HttpBinHeaders {
 	factory HttpBinHeaders.fromJson(Map<String, dynamic> json) => $HttpBinHeadersFromJson(json);
 
 	Map<String, dynamic> toJson() => $HttpBinHeadersToJson(this);
-
-	HttpBinHeaders copyWith({String? accept, String? acceptEncoding, String? acceptLanguage, String? host, String? secChUa, String? secChUaMobile, String? secChUaPlatform, String? secFetchDest, String? secFetchMode, String? secFetchSite, String? secFetchUser, String? upgradeInsecureRequests, String? userAgent, String? xAmznTraceId}) {
-		return HttpBinHeaders()
-			..accept= accept ?? this.accept
-			..acceptEncoding= acceptEncoding ?? this.acceptEncoding
-			..acceptLanguage= acceptLanguage ?? this.acceptLanguage
-			..host= host ?? this.host
-			..secChUa= secChUa ?? this.secChUa
-			..secChUaMobile= secChUaMobile ?? this.secChUaMobile
-			..secChUaPlatform= secChUaPlatform ?? this.secChUaPlatform
-			..secFetchDest= secFetchDest ?? this.secFetchDest
-			..secFetchMode= secFetchMode ?? this.secFetchMode
-			..secFetchSite= secFetchSite ?? this.secFetchSite
-			..secFetchUser= secFetchUser ?? this.secFetchUser
-			..upgradeInsecureRequests= upgradeInsecureRequests ?? this.upgradeInsecureRequests
-			..userAgent= userAgent ?? this.userAgent
-			..xAmznTraceId= xAmznTraceId ?? this.xAmznTraceId;
-	}
 
 	@override
 	String toString() {

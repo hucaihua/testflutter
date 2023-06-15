@@ -3,7 +3,7 @@ import 'package:testflutter/model/http_bin_entity.dart';
 
 HttpBinEntity $HttpBinEntityFromJson(Map<String, dynamic> json) {
 	final HttpBinEntity httpBinEntity = HttpBinEntity();
-	final Map<String,dynamic>? args = jsonConvert.convert<Map<String,dynamic>>(json['args']);
+	final String? args = jsonConvert.convert<String>(json['args']);
 	if (args != null) {
 		httpBinEntity.args = args;
 	}
@@ -19,6 +19,10 @@ HttpBinEntity $HttpBinEntityFromJson(Map<String, dynamic> json) {
 	if (url != null) {
 		httpBinEntity.url = url;
 	}
+	final String? data = jsonConvert.convert<String>(json['data']);
+	if (data != null) {
+		httpBinEntity.data = data;
+	}
 	return httpBinEntity;
 }
 
@@ -28,6 +32,7 @@ Map<String, dynamic> $HttpBinEntityToJson(HttpBinEntity entity) {
 	data['headers'] = entity.headers?.toJson();
 	data['origin'] = entity.origin;
 	data['url'] = entity.url;
+	data['data'] = entity.data;
 	return data;
 }
 

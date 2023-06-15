@@ -5,7 +5,7 @@ import 'package:testflutter/common/log.dart';
 ///* @Author : Alex Hu
 ///* @Contact: hucaihua.lzu@gmail.com
 ///* @Date: on 2023-06-14 21:11
-///* @Comment: add logs to http request.
+///* @Comment: add logs to http request. all list is used to monitor the param in request.
 class LogsInterceptors extends InterceptorsWrapper {
   static List<Map?> sHttpResponses = [];
   static List<String?> sResponsesHttpUrl = [];
@@ -18,11 +18,11 @@ class LogsInterceptors extends InterceptorsWrapper {
 
   @override
   onRequest(RequestOptions options, handler) async {
-    if (true) {
+    if (kDebugMode) {
       options.headers.forEach((k, v) => options.headers[k] = v ?? "");
-      Log.d("request url：${options.path} ${options.method}\n"
+      Log.d("request url：${options.uri.toString()} ${options.method}\n"
           "request head: ${options.headers}\n"
-          "request param: ${options.data}\n");
+          "request param:  ${options.method == 'get' ? options.uri.query : options.data}\n");
     }
     try {
       addLogic(sRequestHttpUrl, options.path);
@@ -48,7 +48,7 @@ class LogsInterceptors extends InterceptorsWrapper {
   @override
   onResponse(Response response, handler) async {
     if (kDebugMode) {
-      Log.d('response param: $response');
+      Log.d('response : ${response}');
     }
     switch (response.data) {
       case Map || List:
@@ -79,7 +79,7 @@ class LogsInterceptors extends InterceptorsWrapper {
 
   @override
   onError(DioException err, handler) async {
-    if (true) {
+    if (kDebugMode) {
       Log.d("response error: $err\n"
           "response detail: ${err.response?.toString() ?? ""}");
     }

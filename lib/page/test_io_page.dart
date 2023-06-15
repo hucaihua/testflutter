@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/common/log.dart';
 import 'package:testflutter/common/platform_util.dart';
+import 'package:testflutter/model/http_bin_entity.dart';
 import 'package:testflutter/model/user_entity.dart';
-import 'package:testflutter/net/api.dart';
+import 'package:testflutter/net/http_manager.dart';
 import 'package:web_socket_channel/io.dart';
 
 class WebSocketRoute extends StatefulWidget {
@@ -90,10 +91,17 @@ class _WebSocketRouteState extends State<WebSocketRoute> {
   }
 
   Future<void> testHttp() async {
-    var response = await  Api.client.queryTest("ljasdf183ds" , "test" , "abcd" , 100);
+    // var response = await  HttpManager.get().queryTest("ljasdf183ds" , "test" , "abcd" , 100);
+
+    var response = await HttpManager.get()
+        .testPostUser(UserEntity()
+          ..name = "caihua"
+          ..id = "1234")
+        .catchError((error) {
+      Log.e(error);
+      return HttpBinEntity();
+    });
+
     Log.d(response.toJson());
-    // Api.client.testPostUser(UserEntity()
-    //   ..name = "caihua"
-    //   ..id = "1234");
   }
 }

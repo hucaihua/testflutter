@@ -4,12 +4,6 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:testflutter/model/http_bin_entity.dart';
 import 'package:testflutter/model/user_entity.dart';
-import 'package:testflutter/net/interceptors/token_interceptor.dart';
-
-import 'interceptors/log_interceptor.dart';
-import 'interceptors/network_interceptor.dart';
-import 'interceptors/request_option_interceptor.dart';
-import 'interceptors/response_interceptor.dart';
 
 ///* @Author : Alex Hu
 ///* @Contact: hucaihua.lzu@gmail.com
@@ -21,23 +15,6 @@ import 'interceptors/response_interceptor.dart';
 ///```
 
 part 'api.g.dart';
-
-class Api {
-  static final _dio = Dio();
-  static final client = Retrofit(_dio);
-
-  Api() {
-    _dio.interceptors.add(RequestOptionInterceptors());
-
-    _dio.interceptors.add(TokenInterceptors());
-
-    _dio.interceptors.add(LogsInterceptors());
-
-    _dio.interceptors.add(NetworkInterceptors());
-
-    _dio.interceptors.add(ResponseInterceptors());
-  }
-}
 
 @RestApi(baseUrl: "http://httpbin.org")
 abstract class Retrofit {
