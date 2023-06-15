@@ -3,7 +3,7 @@
 /// @Date: on 2023-06-05 15:02
 
 /// SharedPreferences Util.
-/// move to https://github.com/Sky24n/sp_util.
+
 library sp_util;
 
 import 'dart:async';
@@ -12,19 +12,11 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:synchronized/synchronized.dart';
 
-/**
- * @Author: Sky24n
- * @GitHub: https://github.com/Sky24n
- * @Email: sky24no@gmail.com
- * @Date: 2018/9/8
- * @Description: Sp Util.
- */
-
 /// SharedPreferences Util.
 class SpUtil {
   static SpUtil? _singleton;
   static SharedPreferences? _prefs;
-  static Lock _lock = Lock();
+  static final Lock _lock = Lock();
 
   static Future<SpUtil?> getInstance() async {
     if (_singleton == null) {

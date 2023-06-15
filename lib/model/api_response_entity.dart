@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
+
 import '../generated/json/base/json_convert_content.dart';
 ///* @Author : Alex Hu
 ///* @Contact: hucaihua.lzu@gmail.com
@@ -9,6 +11,7 @@ import '../generated/json/base/json_convert_content.dart';
 /// eg:{
 ///       "code": 200,
 ///       "message": "success",
+///       "headers": xxxx
 ///       "data":{
 ///         xxxx
 ///       }
@@ -21,6 +24,7 @@ class ApiResponseEntity<T> {
 	int? code = 0;
 	String? message = '';
 	T? data;
+	Headers? headers;
 
 	ApiResponseEntity();
 
@@ -29,11 +33,12 @@ class ApiResponseEntity<T> {
 
 	Map<String, dynamic> toJson() => $ApiResponseEntityToJson(this);
 
-	ApiResponseEntity copyWith({int? code, String? message, T? data}) {
+	ApiResponseEntity copyWith({int? code, String? message, T? data , Headers? headers}) {
 		return ApiResponseEntity()
 			..code= code ?? this.code
 			..message= message ?? this.message
-			..data= data ?? this.data;
+			..data= data ?? this.data
+			..headers= headers ?? this.headers;
 	}
 
 	@override
@@ -56,6 +61,10 @@ ApiResponseEntity<T> $ApiResponseEntityFromJson<T>(Map<String, dynamic> json) {
 	if (data != null) {
 		apiResponseEntity.data = data;
 	}
+	final Headers headers = Headers.fromMap(json['headers']);
+	if (data != null) {
+		apiResponseEntity.headers = headers;
+	}
 	return apiResponseEntity;
 }
 
@@ -64,6 +73,7 @@ Map<String, dynamic> $ApiResponseEntityToJson(ApiResponseEntity entity) {
 	data['code'] = entity.code;
 	data['message'] = entity.message;
 	data['data'] = entity.data?.toJson();
+	data['headers'] = entity.headers?.value;
 	return data;
 }
 

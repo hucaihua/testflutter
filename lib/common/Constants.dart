@@ -16,4 +16,9 @@ class C {
       900: Color(0xFF0D47A1),
     },
   );
+
+  static const connection_time_out_in_seconds = 30;
+  static const API_TOKEN = "4d65e2a5626103f92a71867d7b49fea0";
+  static const TOKEN_KEY = "token";
+  static const BASIC_CODE = "4d65e2a5626103f92a71867d7b49fea0";
 }

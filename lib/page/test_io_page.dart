@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-
-/// @Author : Alex Hu
-/// @Contact: hucaihua.lzu@gmail.com
-/// @Comment: TestIoPage
-/// @Date: on 2023-06-14 09:56
-import 'package:flutter/material.dart';
+import 'package:testflutter/common/log.dart';
+import 'package:testflutter/common/platform_util.dart';
+import 'package:testflutter/model/user_entity.dart';
+import 'package:testflutter/net/api.dart';
 import 'package:web_socket_channel/io.dart';
 
 class WebSocketRoute extends StatefulWidget {
   static const String sName = "WebSocketRoute";
+
   @override
   _WebSocketRouteState createState() => _WebSocketRouteState();
 }
@@ -21,7 +20,11 @@ class _WebSocketRouteState extends State<WebSocketRoute> {
 
   @override
   void initState() {
+    super.initState();
     //创建websocket连接
+    if (PlatformUtil.isWeb) {
+      // channel = HtmlWebSocketChannel.connect('wss://echo.websocket.events');
+    }
     channel = IOWebSocketChannel.connect('ws://echo.websocket.org');
   }
 
@@ -49,14 +52,20 @@ class _WebSocketRouteState extends State<WebSocketRoute> {
                 if (snapshot.hasError) {
                   _text = "网络不通...";
                 } else if (snapshot.hasData) {
-                  _text = "echo: "+snapshot.data;
+                  _text = "echo: " + snapshot.data;
                 }
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 24.0),
                   child: Text(_text),
                 );
               },
-            )
+            ),
+            TextButton.icon(
+                onPressed: () {
+                  testHttp();
+                },
+                icon: Icon(Icons.network_wifi_3_bar_outlined),
+                label: Text("testHttp"))
           ],
         ),
       ),
@@ -78,5 +87,13 @@ class _WebSocketRouteState extends State<WebSocketRoute> {
   void dispose() {
     channel.sink.close();
     super.dispose();
+  }
+
+  Future<void> testHttp() async {
+    var response = await  Api.client.queryTest("ljasdf183ds" , "test" , "abcd" , 100);
+    Log.d(response.toJson());
+    // Api.client.testPostUser(UserEntity()
+    //   ..name = "caihua"
+    //   ..id = "1234");
   }
 }

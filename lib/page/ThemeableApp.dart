@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:testflutter/page/home_inherit_page.dart';
 import 'package:testflutter/page/layout_page.dart';
@@ -32,6 +33,16 @@ class ThemeableAppState extends State<ThemeableApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      localizationsDelegates: [
+        // 本地化的代理类
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', 'US'), // 美国英语
+        const Locale('zh', 'CN'), // 中文简体
+        //其他Locales
+      ],
       theme: ThemeData(
         iconTheme: IconThemeData(color: _themeColor),
         appBarTheme: AppBarTheme(backgroundColor: _themeColor),

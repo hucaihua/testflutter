@@ -88,6 +88,8 @@ class TestJsonState extends State<TestJson> {
     """;
 
     ApiResponseEntity<UserEntity> response = ApiResponseEntity.fromJson(jsonDecode(userData));
-    print(response.data?.name);
+    setState(() {
+      _name = response.data?.name ?? "default";
+    });
   }
 }

@@ -3,7 +3,7 @@ import 'package:testflutter/model/http_bin_entity.dart';
 
 HttpBinEntity $HttpBinEntityFromJson(Map<String, dynamic> json) {
 	final HttpBinEntity httpBinEntity = HttpBinEntity();
-	final HttpBinArgs? args = jsonConvert.convert<HttpBinArgs>(json['args']);
+	final Map<String,dynamic>? args = jsonConvert.convert<Map<String,dynamic>>(json['args']);
 	if (args != null) {
 		httpBinEntity.args = args;
 	}
@@ -24,25 +24,10 @@ HttpBinEntity $HttpBinEntityFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> $HttpBinEntityToJson(HttpBinEntity entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
-	data['args'] = entity.args?.toJson();
+	data['args'] = entity.args;
 	data['headers'] = entity.headers?.toJson();
 	data['origin'] = entity.origin;
 	data['url'] = entity.url;
-	return data;
-}
-
-HttpBinArgs $HttpBinArgsFromJson(Map<String, dynamic> json) {
-	final HttpBinArgs httpBinArgs = HttpBinArgs();
-	final String? name = jsonConvert.convert<String>(json['name']);
-	if (name != null) {
-		httpBinArgs.name = name;
-	}
-	return httpBinArgs;
-}
-
-Map<String, dynamic> $HttpBinArgsToJson(HttpBinArgs entity) {
-	final Map<String, dynamic> data = <String, dynamic>{};
-	data['name'] = entity.name;
 	return data;
 }
 

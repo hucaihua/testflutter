@@ -30,7 +30,7 @@ import 'dart:convert';
 //     """
 @JsonSerializable()
 class HttpBinEntity {
-	HttpBinArgs? args;
+	Map<String,dynamic>? args;
 	HttpBinHeaders? headers;
 	String? origin = '';
 	String? url = '';
@@ -41,33 +41,12 @@ class HttpBinEntity {
 
 	Map<String, dynamic> toJson() => $HttpBinEntityToJson(this);
 
-	HttpBinEntity copyWith({HttpBinArgs? args, HttpBinHeaders? headers, String? origin, String? url}) {
+	HttpBinEntity copyWith({Map<String,dynamic>? args, HttpBinHeaders? headers, String? origin, String? url}) {
 		return HttpBinEntity()
 			..args= args ?? this.args
 			..headers= headers ?? this.headers
 			..origin= origin ?? this.origin
 			..url= url ?? this.url;
-	}
-
-	@override
-	String toString() {
-		return jsonEncode(this);
-	}
-}
-
-@JsonSerializable()
-class HttpBinArgs {
-	String? name = '';
-
-	HttpBinArgs();
-
-	factory HttpBinArgs.fromJson(Map<String, dynamic> json) => $HttpBinArgsFromJson(json);
-
-	Map<String, dynamic> toJson() => $HttpBinArgsToJson(this);
-
-	HttpBinArgs copyWith({String? name}) {
-		return HttpBinArgs()
-			..name= name ?? this.name;
 	}
 
 	@override
