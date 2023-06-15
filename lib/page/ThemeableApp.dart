@@ -41,7 +41,6 @@ class ThemeableAppState extends State<ThemeableApp> {
         GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      locale: const Locale("zh","cn"),
       theme: ThemeData(
         iconTheme: IconThemeData(color: _themeColor),
         appBarTheme: AppBarTheme(backgroundColor: _themeColor),
