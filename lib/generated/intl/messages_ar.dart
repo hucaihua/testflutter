@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a cn locale. All the
+// This is a library that provides messages for a ar locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,10 +18,22 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'cn';
+  String get localeName => 'ar';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "appName": MessageLookupByLibrary.simpleMessage("测试flutter")
+        "appName": MessageLookupByLibrary.simpleMessage("اختبار الفلاش"),
+        "testAnimation": MessageLookupByLibrary.simpleMessage("testAnimation"),
+        "testAnimation2":
+            MessageLookupByLibrary.simpleMessage("testAnimation2"),
+        "testFuture": MessageLookupByLibrary.simpleMessage("اختبار المستقبل"),
+        "testHero": MessageLookupByLibrary.simpleMessage("testHero"),
+        "testHomeInheritPage":
+            MessageLookupByLibrary.simpleMessage("testHomeInheritPage"),
+        "testLayout": MessageLookupByLibrary.simpleMessage("اختبار"),
+        "testLogin": MessageLookupByLibrary.simpleMessage("اختبار"),
+        "testTouch": MessageLookupByLibrary.simpleMessage("اختبار"),
+        "testio": MessageLookupByLibrary.simpleMessage("testio"),
+        "testjson": MessageLookupByLibrary.simpleMessage("testjson")
       };
 }

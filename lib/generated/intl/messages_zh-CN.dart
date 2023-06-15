@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a en locale. All the
+// This is a library that provides messages for a zh_CN locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,22 +18,21 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'en';
+  String get localeName => 'zh_CN';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "appName": MessageLookupByLibrary.simpleMessage("testFlutter"),
-        "testAnimation": MessageLookupByLibrary.simpleMessage("testAnimation"),
-        "testAnimation2":
-            MessageLookupByLibrary.simpleMessage("testAnimation2"),
-        "testFuture": MessageLookupByLibrary.simpleMessage("testFuture"),
-        "testHero": MessageLookupByLibrary.simpleMessage("testHero"),
+        "appName": MessageLookupByLibrary.simpleMessage("测试Flutter"),
+        "testAnimation": MessageLookupByLibrary.simpleMessage("测试动画"),
+        "testAnimation2": MessageLookupByLibrary.simpleMessage("测试动画2"),
+        "testFuture": MessageLookupByLibrary.simpleMessage("测试未来"),
+        "testHero": MessageLookupByLibrary.simpleMessage("测试英雄"),
         "testHomeInheritPage":
-            MessageLookupByLibrary.simpleMessage("testHomeInheritPage"),
-        "testLayout": MessageLookupByLibrary.simpleMessage("testLayout"),
-        "testLogin": MessageLookupByLibrary.simpleMessage("testLogin"),
-        "testTouch": MessageLookupByLibrary.simpleMessage("testTouch"),
-        "testio": MessageLookupByLibrary.simpleMessage("testio"),
-        "testjson": MessageLookupByLibrary.simpleMessage("testjson")
+            MessageLookupByLibrary.simpleMessage("测试HomeInheritPage"),
+        "testLayout": MessageLookupByLibrary.simpleMessage("测试布局"),
+        "testLogin": MessageLookupByLibrary.simpleMessage("测试登录"),
+        "testTouch": MessageLookupByLibrary.simpleMessage("测试触摸"),
+        "testio": MessageLookupByLibrary.simpleMessage("测试"),
+        "testjson": MessageLookupByLibrary.simpleMessage("测试json")
       };
 }

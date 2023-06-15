@@ -1,5 +1,5 @@
 {
-  "@@locale": "en",
+  "@@locale": "fr",
   "appName": "testFlutter",
   "@appName": {},
   "testAnimation": "testAnimation",
@@ -12,13 +12,13 @@
   "@testHero": {},
   "testHomeInheritPage": "testHomeInheritPage",
   "@testHomeInheritPage": {},
-  "testio": "testio",
+  "testio": "témoignage",
   "@testio": {},
   "testjson": "testjson",
   "@testjson": {},
   "testLayout": "testLayout",
   "@testLayout": {},
-  "testLogin": "testLogin",
+  "testLogin": "testConnexion",
   "@testLogin": {},
   "testTouch": "testTouch",
   "@testTouch": {}

@@ -41,7 +41,7 @@ class ThemeableAppState extends State<ThemeableApp> {
         GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      locale: const Locale.fromSubtags(languageCode: 'en'),
+      locale: const Locale("zh","cn"),
       theme: ThemeData(
         iconTheme: IconThemeData(color: _themeColor),
         appBarTheme: AppBarTheme(backgroundColor: _themeColor),
@@ -117,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     Navigator.pushNamed(context, LoginPage.sName);
                   },
-                  child: Text("testLogin"),
+                  child: Text(S.current.testLogin),
                   style: ButtonStyle(
                       // foregroundColor: UIUtil.buttonStyle()
                       ),
@@ -126,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     Navigator.pushNamed(context, LayoutPage.sName);
                   },
-                  child: const Text("testLayout"),
+                  child: Text(S.current.testLayout),
                   style: const ButtonStyle(
                       // foregroundColor: UIUtil.buttonStyle()
                       ),
@@ -135,7 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     Navigator.pushNamed(context, HomeInheritPage.sName);
                   },
-                  child: const Text("testHomeInheritPage"),
+                  child: Text(S.current.testHomeInheritPage),
                   style: const ButtonStyle(
                       // foregroundColor: UIUtil.buttonStyle()
                       ),
@@ -144,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     Navigator.pushNamed(context, FuturePage.sName);
                   },
-                  child: const Text("testFuture"),
+                  child: Text(S.current.testFuture),
                   style: const ButtonStyle(
                     // foregroundColor: UIUtil.buttonStyle()
                   ),
@@ -153,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     Navigator.pushNamed(context, TestTouchPage.sName);
                   },
-                  child: const Text("testTouch"),
+                  child: Text(S.current.testTouch),
                   style: const ButtonStyle(
                       // foregroundColor: UIUtil.buttonStyle()
                       ),
@@ -176,7 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
                     // Navigator.pushNamed(context, TestAnimationPage.sName);
                   },
-                  child: const Text("testAnimation"),
+                  child: Text(S.current.testAnimation),
                   style: const ButtonStyle(
                       // foregroundColor: UIUtil.buttonStyle()
                       ),
@@ -185,22 +185,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     Navigator.pushNamed(context, TestAnimationPage2.sName);
                   },
-                  child: const Text("testAnimation2"),
+                  child: Text(S.current.testAnimation2),
                   style: const ButtonStyle(
                     // foregroundColor: UIUtil.buttonStyle()
                   ),
                 ),
                 ElevatedButton(
                   onPressed: () { Navigator.pushNamed(context, TestAnimationHero.sName); },
-                  child: const Text("testHero"),
+                  child: Text(S.current.testHero),
                 ),
                 ElevatedButton(
                   onPressed: () { Navigator.pushNamed(context, WebSocketRoute.sName); },
-                  child: const Text("testio"),
+                  child: Text(S.current.testio),
                 ),
                 ElevatedButton(
                   onPressed: () { Navigator.pushNamed(context, TestJson.sName); },
-                  child: const Text("testjson"),
+                  child: Text(S.current.testjson),
                 ),
               ],
             ),

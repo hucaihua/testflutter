@@ -59,6 +59,106 @@ class S {
       args: [],
     );
   }
+
+  /// `testAnimation`
+  String get testAnimation {
+    return Intl.message(
+      'testAnimation',
+      name: 'testAnimation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `testAnimation2`
+  String get testAnimation2 {
+    return Intl.message(
+      'testAnimation2',
+      name: 'testAnimation2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `testFuture`
+  String get testFuture {
+    return Intl.message(
+      'testFuture',
+      name: 'testFuture',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `testHero`
+  String get testHero {
+    return Intl.message(
+      'testHero',
+      name: 'testHero',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `testHomeInheritPage`
+  String get testHomeInheritPage {
+    return Intl.message(
+      'testHomeInheritPage',
+      name: 'testHomeInheritPage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `testio`
+  String get testio {
+    return Intl.message(
+      'testio',
+      name: 'testio',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `testjson`
+  String get testjson {
+    return Intl.message(
+      'testjson',
+      name: 'testjson',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `testLayout`
+  String get testLayout {
+    return Intl.message(
+      'testLayout',
+      name: 'testLayout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `testLogin`
+  String get testLogin {
+    return Intl.message(
+      'testLogin',
+      name: 'testLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `testTouch`
+  String get testTouch {
+    return Intl.message(
+      'testTouch',
+      name: 'testTouch',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -67,8 +167,9 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
-      Locale.fromSubtags(languageCode: 'cn'),
-      Locale.fromSubtags(languageCode: 'messages'),
+      Locale.fromSubtags(languageCode: 'ar'),
+      Locale.fromSubtags(languageCode: 'fr'),
+      Locale.fromSubtags(languageCode: 'zh', countryCode: 'CN'),
     ];
   }
 
