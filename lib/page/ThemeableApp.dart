@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
+import 'package:testflutter/common/Global.dart';
 import 'package:testflutter/page/home_inherit_page.dart';
 import 'package:testflutter/page/layout_page.dart';
 import 'package:testflutter/page/login_page.dart';
@@ -11,8 +13,11 @@ import 'package:testflutter/page/test_io_page.dart';
 import 'package:testflutter/page/test_json.dart';
 import 'package:testflutter/page/test_touch_page.dart';
 
+import '../common/log.dart';
 import '../generated/l10n.dart';
+import '../model/ThemeModel.dart';
 import 'future_page.dart';
+import 'dart:math';
 
 /// @Author : Alex Hu
 /// @Contact: hucaihua.lzu@gmail.com
@@ -28,45 +33,34 @@ class ThemeableApp extends StatefulWidget {
 }
 
 class ThemeableAppState extends State<ThemeableApp> {
-  var _themeColor = Colors.red;
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      onGenerateTitle: (context) => S.of(context).appName,
-      localizationsDelegates: const [
-        S.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
-      theme: ThemeData(
-        iconTheme: IconThemeData(color: _themeColor),
-        appBarTheme: AppBarTheme(backgroundColor: _themeColor),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => ThemeModel())],
+      child: Consumer<ThemeModel>(
+        builder: (context, themeModel, child) {
+          Log.d("Consumer ThemeModel ${themeModel.theme}");
+          return MaterialApp(
+            onGenerateTitle: (context) => S.of(context).appName,
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            theme: ThemeData(
+              appBarTheme: AppBarTheme(color: themeModel.theme),
+              colorScheme: ColorScheme.light(primary: themeModel.theme),
+              useMaterial3: true,
+            ),
+            routes: Global.routes,
+            initialRoute: "/",
+          );
+        },
       ),
-      routes: {
-        "/": (context) => const MyHomePage(title: "HelloFlutter"),
-        LoginPage.sName: (context) => const LoginPage(),
-        LayoutPage.sName: (context) => const LayoutPage(),
-        HomeInheritPage.sName: (context) => const HomeInheritPage(),
-        FuturePage.sName: (context) => const FuturePage(),
-        TestTouchPage.sName: (context) => const TestTouchPage(),
-        TestAnimationPage.sName: (context) => const TestAnimationPage(),
-        TestAnimationPage2.sName: (context) => const TestAnimationPage2(),
-        TestAnimationHero.sName: (context) => const TestAnimationHero(),
-        WebSocketRoute.sName: (context) => WebSocketRoute(),
-        TestJson.sName: (context) => TestJson(),
-      },
-      initialRoute: "/",
     );
-  }
-
-  void updateThemeColor(MaterialColor red) {
-    setState(() {
-      _themeColor = red;
-    });
   }
 }
 
@@ -207,9 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            setState(() {
-              context.findAncestorStateOfType<ThemeableAppState>()?.updateThemeColor(Colors.cyan);
-            });
+            Provider.of<ThemeModel>(context, listen: false).theme = Global.themes.elementAt(Random().nextInt(Global.themes.length));
           },
             child: Icon(Icons.palette)
         ), // This trailing comma makes auto-formatting nicer for build methods.

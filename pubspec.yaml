@@ -38,6 +38,8 @@ dependencies:
   convert: ^3.1.1
   intl_generator: ^0.4.1
 
+  provider: ^6.0.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

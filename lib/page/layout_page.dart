@@ -23,7 +23,6 @@ class LayoutPageState extends State<LayoutPage> {
     return Scaffold(
       appBar: AppBar(
         leading: UIUtil.appBarLeading(context),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text("Layout"),
         actions: const [
           //todo center
