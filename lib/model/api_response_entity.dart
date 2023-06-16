@@ -61,10 +61,14 @@ ApiResponseEntity<T> $ApiResponseEntityFromJson<T>(Map<String, dynamic> json) {
 	if (data != null) {
 		apiResponseEntity.data = data;
 	}
-	final Headers headers = Headers.fromMap(json['headers']);
-	if (data != null) {
-		apiResponseEntity.headers = headers;
+
+	if(json.containsKey('headers') && json['headers'] != null){
+		final Headers headers = Headers.fromMap(json['headers']);
+		if (data != null) {
+			apiResponseEntity.headers = headers;
+		}
 	}
+
 	return apiResponseEntity;
 }
 
