@@ -40,6 +40,8 @@ dependencies:
 
   provider: ^6.0.5
 
+  flutter_native_splash: ^2.3.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -52,6 +54,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+flutter_native_splash:
+  image: assets/images/logo.png
+  color: "#ffffff"
 
   assets:
     - assets/
