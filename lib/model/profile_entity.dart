@@ -10,6 +10,7 @@ class ProfileEntity {
 	String? cache = '';
 	String? lastLogin = '';
 	String? locale = '';
+	bool isDarkMode = false;
 
 	ProfileEntity();
 

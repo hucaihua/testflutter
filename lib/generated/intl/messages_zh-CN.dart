@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("测试HomeInheritPage"),
         "testLayout": MessageLookupByLibrary.simpleMessage("测试布局"),
         "testLogin": MessageLookupByLibrary.simpleMessage("测试登录"),
+        "testTheme": MessageLookupByLibrary.simpleMessage("测试主题"),
         "testTouch": MessageLookupByLibrary.simpleMessage("测试触摸"),
         "testio": MessageLookupByLibrary.simpleMessage("测试"),
         "testjson": MessageLookupByLibrary.simpleMessage("测试json")

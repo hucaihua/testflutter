@@ -51,9 +51,12 @@ class ThemeableAppState extends State<ThemeableApp> {
             ],
             supportedLocales: S.delegate.supportedLocales,
             theme: ThemeData(
-              appBarTheme: AppBarTheme(color: themeModel.theme),
-              colorScheme: ColorScheme.light(primary: themeModel.theme),
+              appBarTheme:  AppBarTheme(color: Provider.of<ThemeModel>(context, listen: false).profile?.isDarkMode == false ? themeModel.theme : Colors.black) ,
+              colorScheme: Provider.of<ThemeModel>(context, listen: false).profile?.isDarkMode == false ? ColorScheme.light(primary: themeModel.theme): ColorScheme.dark(primary: themeModel.theme),
               useMaterial3: true,
+            ),
+            darkTheme: ThemeData(
+
             ),
             routes: Global.routes,
             initialRoute: "/",
@@ -195,16 +198,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () { Navigator.pushNamed(context, TestJson.sName); },
                   child: Text(S.current.testjson),
                 ),
+
+            ElevatedButton(
+              onPressed: () {
+                Provider.of<ThemeModel>(context, listen: false).theme = Global.themes.elementAt(Random().nextInt(Global.themes.length));
+                Provider.of<ThemeModel>(context, listen: false).darkMode = !Provider.of<ThemeModel>(context, listen: false).darkMode;
+              },
+              child: Text(S.current.testTheme),
+            ),
               ],
             ),
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Provider.of<ThemeModel>(context, listen: false).theme = Global.themes.elementAt(Random().nextInt(Global.themes.length));
-          },
-            child: Icon(Icons.palette)
-        ), // This trailing comma makes auto-formatting nicer for build methods.
       ),
     );
   }

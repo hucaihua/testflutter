@@ -14,10 +14,19 @@ class ThemeModel extends ProfileModel{
   MaterialColor get theme => Global.themes
       .firstWhere((e) => e.value == profile?.theme, orElse: () => Colors.blue);
 
+  bool get darkMode => profile?.isDarkMode == true;
+
   set theme(MaterialColor color) {
     Log.d("change theme : $color");
     if (color != theme) {
       profile?.theme = color[500]!.value;
+      notifyListeners();
+    }
+  }
+
+  set darkMode(bool isDark){
+    if(profile?.isDarkMode != isDark){
+      profile?.isDarkMode = isDark;
       notifyListeners();
     }
   }

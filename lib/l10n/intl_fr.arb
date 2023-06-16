@@ -21,5 +21,7 @@
   "testLogin": "testConnexion",
   "@testLogin": {},
   "testTouch": "testTouch",
-  "@testTouch": {}
+  "@testTouch": {},
+  "testTheme": "testTheme",
+  "@testTheme": {}
 }

@@ -27,6 +27,10 @@ ProfileEntity $ProfileEntityFromJson(Map<String, dynamic> json) {
 	if (locale != null) {
 		profileEntity.locale = locale;
 	}
+	final bool? isDarkMode = jsonConvert.convert<bool>(json['isDarkMode']);
+	if (isDarkMode != null) {
+		profileEntity.isDarkMode = isDarkMode;
+	}
 	return profileEntity;
 }
 
@@ -38,5 +42,6 @@ Map<String, dynamic> $ProfileEntityToJson(ProfileEntity entity) {
 	data['cache'] = entity.cache;
 	data['lastLogin'] = entity.lastLogin;
 	data['locale'] = entity.locale;
+	data['isDarkMode'] = entity.isDarkMode;
 	return data;
 }

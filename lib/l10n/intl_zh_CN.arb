@@ -21,5 +21,7 @@
   "testLogin": "测试登录",
   "@testLogin": {},
   "testTouch": "测试触摸",
-  "@testTouch": {}
+  "@testTouch": {},
+  "testTheme": "测试主题",
+  "@testTheme": {}
 }
