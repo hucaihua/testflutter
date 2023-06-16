@@ -13,6 +13,11 @@ void reportErrorAndLog(Object exception, [StackTrace? stack]) {
 }
 
 void main() {
+
+  //  debugProfileBuildsEnabled = true;
+//  debugPaintLayerBordersEnabled = true;
+//  debugProfilePaintsEnabled = true;
+//  debugRepaintRainbowEnabled = true;
   var onError = FlutterError.onError;
   FlutterError.onError = (FlutterErrorDetails details) {
     onError?.call(details);
