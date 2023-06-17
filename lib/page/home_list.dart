@@ -106,7 +106,7 @@ class HomeListState extends State<HomeList> {
                             margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: (Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black)
+                                color: (Theme.of(context).brightness == Brightness.dark ? Colors.black : Colors.white)
                                     .withOpacity(_current == entry.key ? 0.9 : 0.4)),
                           ),
                         );
