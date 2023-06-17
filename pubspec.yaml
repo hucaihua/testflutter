@@ -18,6 +18,7 @@ dependencies:
   pull_to_refresh: ^2.0.0
   fluttertoast: ^8.2.2
   cupertino_icons: ^1.0.2
+  carousel_slider: ^4.2.1
 
   # network
   dio: ^5.2.1
@@ -54,10 +55,22 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
+
 
 flutter_native_splash:
+  # dart run flutter_native_splash:create
   image: assets/images/logo.png
   color: "#ffffff"
+  #background_image: "assets/background.png"
+  branding: assets/images/logo.png
+  branding_mode: bottom
+
+  #color_dark: "#042a49"
+  #background_image_dark: "assets/dark-background.png"
+  #image_dark: assets/splash-invert.png
+  #branding_dark: assets/dart_dark.png
 
   assets:
     - assets/
