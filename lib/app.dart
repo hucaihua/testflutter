@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
 }
 
 class ThemeApp extends StatefulWidget {
-  static const String sName = "ThemeableApp";
+  static const String sName = "ThemeApp";
 
   const ThemeApp({super.key});
 

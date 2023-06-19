@@ -5,7 +5,9 @@
 
 import 'dart:async';
 import 'dart:ui';
-import 'package:flutter/widgets.dart';
+
+import 'package:flutter/material.dart';
+
 import 'Constants.dart';
 
 bool handleErrorByZone = true;
@@ -31,8 +33,17 @@ void handleError(void Function() app) {
 
   ErrorWidget.builder = (FlutterErrorDetails details) {
     _handleError(details);
-    return const Center(
-      child: Text("Flutter running out..."),
+    return Container(
+      color: Colors.white,
+      alignment: Alignment.center,
+      // ,
+      child: TextButton.icon(
+        icon: const Icon(Icons.refresh , color: Colors.black38,),
+        label: const Text("Flutter running out...", style: TextStyle(fontSize: 15, color: Colors.black38)),
+        onPressed: () {
+
+        },
+      ),
     );
   };
 
