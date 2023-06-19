@@ -1,5 +1,6 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:testflutter/common/Global.dart';
@@ -13,70 +14,26 @@ import 'package:testflutter/page/test_io_page.dart';
 import 'package:testflutter/page/test_json.dart';
 import 'package:testflutter/page/test_touch_page.dart';
 
-import '../common/log.dart';
 import '../generated/l10n.dart';
 import '../model/ThemeModel.dart';
 import 'future_page.dart';
-import 'dart:math';
 
 /// @Author : Alex Hu
 /// @Contact: hucaihua.lzu@gmail.com
 /// @Comment: ThemeableApp
 /// @Date: on 2023-06-10 12:23
-class ThemeableApp extends StatefulWidget {
-  static const String sName = "ThemeableApp";
 
-  const ThemeableApp({super.key});
 
-  @override
-  ThemeableAppState createState() => ThemeableAppState();
-}
-
-class ThemeableAppState extends State<ThemeableApp> {
-
-  @override
-  Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => ThemeModel())],
-      child: Consumer<ThemeModel>(
-        builder: (context, themeModel, child) {
-          Log.d("Consumer ThemeModel ${themeModel.theme}");
-          return MaterialApp(
-            onGenerateTitle: (context) => S.of(context).appName,
-            localizationsDelegates: const [
-              S.delegate,
-              GlobalCupertinoLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
-            theme: ThemeData(
-              appBarTheme:  AppBarTheme(color: Provider.of<ThemeModel>(context, listen: false).profile?.isDarkMode == false ? themeModel.theme : Colors.black) ,
-              colorScheme: Provider.of<ThemeModel>(context, listen: false).profile?.isDarkMode == false ? ColorScheme.light(primary: themeModel.theme): ColorScheme.dark(primary: themeModel.theme),
-              useMaterial3: true,
-            ),
-            darkTheme: ThemeData(
-
-            ),
-            routes: Global.routes,
-            initialRoute: "/",
-          );
-        },
-      ),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class EntryPage extends StatefulWidget {
+  const EntryPage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<EntryPage> createState() => _EntryPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _EntryPageState extends State<EntryPage> {
   TextEditingController testController = TextEditingController();
   DateTime? _lastPressedAt;
 

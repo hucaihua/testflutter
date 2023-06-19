@@ -5,7 +5,7 @@ import 'package:sp_util/sp_util.dart';
 import 'package:testflutter/common/log.dart';
 
 import '../model/profile_entity.dart';
-import '../page/ThemeableApp.dart';
+import '../page/entry_page.dart';
 import '../page/future_page.dart';
 import '../page/home_inherit_page.dart';
 import '../page/layout_page.dart';
@@ -18,11 +18,8 @@ import '../page/test_json.dart';
 import '../page/test_touch_page.dart';
 
 ///* @Author : Alex Hu
-///* @Contact: hucaihua.lzu@gmail.com
 ///* @Date: on 2023-06-16 14:53
 ///* @Comment: Global
-/// ```dart
-///```
 
 const _themes = <MaterialColor>[
   Colors.blue,
@@ -62,7 +59,7 @@ class Global {
   }
 
   static final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
-    "/": (context) => const MyHomePage(title: "HelloFlutter"),
+    "/": (context) => const EntryPage(title: "Entry"),
     LoginPage.sName: (context) => const LoginPage(),
     LayoutPage.sName: (context) => const LayoutPage(),
     HomeInheritPage.sName: (context) => const HomeInheritPage(),
@@ -72,6 +69,6 @@ class Global {
     TestAnimationPage2.sName: (context) => const TestAnimationPage2(),
     TestAnimationHero.sName: (context) => const TestAnimationHero(),
     WebSocketRoute.sName: (context) => WebSocketRoute(),
-    TestJson.sName: (context) => TestJson(),
+    TestJson.sName: (context) => const TestJson(),
   };
 }

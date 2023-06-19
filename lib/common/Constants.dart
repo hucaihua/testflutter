@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class C {
   final colors = const MaterialColor(
@@ -21,4 +23,13 @@ class C {
   static const API_TOKEN = "4d65e2a5626103f92a71867d7b49fea0";
   static const TOKEN_KEY = "token";
   static const BASIC_CODE = "4d65e2a5626103f92a71867d7b49fea0";
+
+  static bool isDebug = kDebugMode;
+
+  static void showPerformance({bool show = true}) {
+    debugProfileBuildsEnabled = show;
+    debugPaintLayerBordersEnabled = show;
+    debugProfilePaintsEnabled = show;
+    debugRepaintRainbowEnabled = show;
+  }
 }
