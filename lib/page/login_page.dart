@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../common/log.dart';
 import '../common/UIUtil.dart';
+import '../common/log.dart';
 
 class LoginPage extends StatefulWidget {
   static const String sName = "LoginPage";
