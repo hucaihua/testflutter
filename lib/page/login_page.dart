@@ -22,7 +22,6 @@ class LoginState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    throw const FormatException("test exception");
     return Scaffold(
         appBar: AppBar(
           leading: UIUtil.appBarLeading(context),

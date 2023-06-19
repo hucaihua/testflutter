@@ -11,7 +11,7 @@ import '../widget/GlobalErrorWidget.dart';
 import 'Constants.dart';
 import 'log.dart';
 
-bool handleErrorByZone = false;
+bool handleErrorByZone = true;
 const maxFrames = 20;
 
 void handleError(void Function() app) {
